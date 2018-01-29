@@ -10,7 +10,6 @@ exports.up = function(knex, Promise) {
     table.integer('steals');
     table.integer('assists');
     table.integer('blocks');
-    table.integer('fouls');
   })
 };
 
