@@ -1,9 +1,9 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('players').del()
     .then(function() {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('players').insert([
         { first_name: 'LeBron', last_name: 'James', team_id: 1, jersey#: 23, position: 'SF', points: 27.1, steals: 1.6, assists: 7.1, blocks: 0.8 },
         { first_name: 'Kevin', last_name: 'Love', team_id: 1, jersey#: 0, position: 'PF', points: 18.4, steals: 0.7, assists: 2.3, blocks: 0.5 },
         { first_name: 'Isaiah', last_name: 'Thomas', team_id: 1, jersey#: 3, position: 'PG', points: 19.0, steals: 1.0, assists: 5.1, blocks: 0.1 },
