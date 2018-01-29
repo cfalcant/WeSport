@@ -3,7 +3,9 @@ module.exports = function(app) {
 
   // HOME :
   app.get('/', home.index);
-
+  app.post('/register', home.register);
+  app.post('/login', home.login);
+  app.use(authMiddleware);
 
 }
 
