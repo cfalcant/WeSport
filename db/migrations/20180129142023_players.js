@@ -6,11 +6,10 @@ exports.up = function(knex, Promise) {
     table.integer('jersey#');
     table.string('position');
     table.integer('team_id').references('id').inTable('teams').notNullable().onDelete('cascade');
-    table.integer('points/game');
-    table.integer('steals/game');
-    table.integer('assists/game');
-    table.integer('blocks/game');
-    table.integer('fouls/game');
+    table.integer('points');
+    table.integer('steals');
+    table.integer('assists');
+    table.integer('blocks');
   })
 };
 
