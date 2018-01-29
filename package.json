@@ -1,0 +1,30 @@
+{
+  "name": "q2_project",
+  "version": "1.0.0",
+  "description": "Galvanize Q2 project",
+  "main": "knexfile.js",
+  "dependencies": {
+    "connect-session-knex": "^1.4.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "knex": "^0.14.2",
+    "pg": "^7.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cfalcant/q2_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cfalcant/q2_project/issues"
+  },
+  "homepage": "https://github.com/cfalcant/q2_project#readme"
+}
