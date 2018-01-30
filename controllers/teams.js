@@ -21,6 +21,21 @@ module.exports = {
             res.render('individualTeam', { players: allplayers, teams: allteams[0] })
           })
       })
+  },
+
+  add: (req, res) => {
+    knex('teams')
+      .then((allteams) => {
+        knex('teams')
+          .insert({
+            team_name: req.body.team_name,
+            head_coach: req.body.head_coach,
+            city: req.body.city
+          })
+          .then((newTeamAdded) => {
+            res.render('teams', { teams: allteams })
+          })
+      })
   }
 
 }

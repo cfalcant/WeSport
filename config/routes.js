@@ -6,6 +6,7 @@ module.exports = function(app) {
 
   // HOME :
   app.get('/', home.index);
+
   app.post('/register', home.register);
   app.post('/login', home.login);
   app.use(authMiddleware);
@@ -14,9 +15,13 @@ module.exports = function(app) {
   app.get('/players', players.index);
   app.get('/players/:id', players.individual);
 
+  app.post('/player/add', players.add);
+
   // TEAMS :
   app.get('/teams', teams.index);
   app.get('/teams/:id', teams.individual);
+
+  app.post('/team/add', teams.add);
 }
 
 function authMiddleware(req, res, next) {

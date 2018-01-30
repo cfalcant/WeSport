@@ -27,6 +27,39 @@
   </nav>
 
   <h1> All Players </h1>
+   <hr>
+
+   <h2>Add a new player!</h2>
+   <button onclick="myFunction()" type="submit">Add a new player!</button>
+
+
+   <div id="addPlayerButton" style="display:none;">
+     <h4>Enter player's information below:</h4>
+     <form action="/player/add" method="post">
+       <input type="string" name="first_name" placeholder="First Name">
+       <input type="string" name="last_name" placeholder="Last Name">
+       <input type="integer" name="jersey" placeholder="Jersey #">
+       <select name="position">
+         <option value="PG">PG</option>
+         <option value="SG">SG</option>
+         <option value="SF">SF</option>
+         <option value="PF">PF</option>
+         <option value="C">C</option>
+       </select>
+
+       <select name="team_id">
+         <% for (let k = 0; k < teams.length; k++) { %>
+             <option value="<%=teams[k].id%>"><%=teams[k].id%> - <%=teams[k].team_name%></option>
+       <% } %>
+     </select>
+       <input type="decimal" name="points" placeholder="Points">
+       <input type="decimal" name="steals" placeholder="Steals">
+       <input type="decimal" name="assists" placeholder="Assists">
+       <input type="decimal" name="blocks" placeholder="Blocks">
+       <input type="submit">
+     </form>
+   </div>
+   <hr>
 
   <% for(let i = 0; i < players.length; i++) { %>
     <% for (let j = 0; j < teams.length; j++) { %>
@@ -68,6 +101,16 @@
         <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
           crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script>
+     function myFunction() {
+       var x = document.getElementById("addPlayerButton");
+       if (x.style.display === "block") {
+         x.style.display = "none";
+       } else {
+         x.style.display = "block";
+       }
+     }
+   </script>
 
 </body>
 
