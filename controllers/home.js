@@ -26,7 +26,7 @@ module.exports = {
         if (!user) {
           req.session.error = "Invalid email/password"
           req.session.save(() => {
-            res.redirect('/');
+            res.redirect('/players');
             return;
           })
         }

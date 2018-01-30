@@ -2,27 +2,56 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+    <link rel="stylesheet" href="/stylesheets/home.css">
     <title>Home</title>
   </head>
   <body>
 
-    <h3>Register:</h3>
+    <nav>
+      <div class="nav-wrapper grey darken-1">
+        <!-- <a href="#" class="brand-logo right">Logo</a> -->
+        <ul id="nav" class="right hide-on-med-and-down">
+          <li><a href="/teams">Teams</a></li>
+          <li><a href="/players">Players</a></li>
+          <li><a href="/all-star">All-Star</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    <form action="/register" method="post">
-      <input type="email" name="email" placeholder="Email">
-      <input type="password" name="password" placeholder="Password">
-      <input type="submit">
-    </form>
+    <div class="container">
+      <span>
+        <img src="../images/nba-map-teams.jpg" alt="NBA Team Map">
+      </span>
 
-    <hr>
+      <h3>Register:</h3>
 
-    <h3>Login:</h3>
+      <form class="register" action="/register" method="post">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit">
+      </form>
 
-    <form action="/login" method="post">
-      <input type="email" name="email" placeholder="Email">
-      <input type="password" name="password" placeholder="Password">
-      <input type="submit">
-    </form>
-    
+      <hr>
+
+      <h3>Login:</h3>
+
+      <form class="login" action="/login" method="post">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit">
+      </form>
+
+    </div>
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </body>
 </html>
