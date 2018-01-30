@@ -10,6 +10,13 @@ module.exports = function(app) {
   app.post('/login', home.login);
   app.use(authMiddleware);
 
+  // PLAYERS :
+  app.get('/players', players.index);
+  app.get('/players/:id', players.individual);
+
+  // TEAMS :
+  app.get('/teams', teams.index);
+  app.get('/teams/:id', teams.individual);
 }
 
 function authMiddleware(req, res, next) {

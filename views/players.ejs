@@ -1,10 +1,74 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Players</title>
-  </head>
-  <body>
-    <h1>Players Page</h1>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+   <!-- Compiled and minified JavaScript -->
+  <link rel="stylesheet" href="/stylesheets/players.css">
+  <title>Players</title>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper grey darken-1">
+      <!-- <a href="#" class="brand-logo right">Logo</a> -->
+      <ul id="nav" class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/teams">Teams</a></li>
+        <li><a href="/players">Players</a></li>
+        <li><a href="/all-star">All-Star</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <h1> All Players </h1>
+
+  <% for(let i = 0; i < players.length; i++) { %>
+    <% for (let j = 0; j < teams.length; j++) { %>
+      <%   if (teams[j].id === players[i].team_id) { %>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Team</th>
+            <th>Jersey #</th>
+            <th>Position</th>
+            <th>Points/game</th>
+            <th>Steals/game</th>
+            <th>Assists/game</th>
+            <th>Blocks/game</th>
+          </tr>
+          <tr>
+            <td><a href="/players/<%= players[i].id %>"><%= `${players[i].first_name} ${players[i].last_name}` %></td>
+            <td><%= teams[j].team_name %></td>
+            <td><%= players[i].jersey %></td>
+            <td><%= players[i].position %></td>
+            <td><%= players[i].points %></td>
+            <td><%= players[i].assists %></td>
+            <td><%= players[i].steals %></td>
+            <td><%= players[i].blocks %></td>
+          </tr>
+        </table>
+        <% } %>
+          <% } %>
+            <% } %>
+
+        <footer class="grey darken-1 page-footer">
+          <div class="footer-copyright">
+            <div class="container">
+              © 2018 Copyright Carlos Alcantar & Nick D'Errico
+            </div>
+          </div>
+        </footer>
+
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</body>
+
 </html>

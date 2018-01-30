@@ -1,0 +1,12 @@
+body {
+  text-align: center;
+}
+
+table {
+  justify-content: center;
+  text-align: center;
+}
+
+tr {
+  border: 1px solid black;
+}
