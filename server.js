@@ -8,8 +8,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 
-var routes_setter = require('./config/routes.js');
+require('./config/session.js')(app);
+let routes_setter = require('./config/routes.js');
 routes_setter(app);
+
 
 app.listen(port, function() {
   console.log('Listening on', port);

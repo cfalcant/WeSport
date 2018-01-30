@@ -3,13 +3,13 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('first_name');
     table.string('last_name');
-    table.integer('jersey#');
+    table.integer('jersey');
     table.string('position');
     table.integer('team_id').references('id').inTable('teams').notNullable().onDelete('cascade');
-    table.integer('points');
-    table.integer('steals');
-    table.integer('assists');
-    table.integer('blocks');
+    table.decimal('points');
+    table.decimal('steals');
+    table.decimal('assists');
+    table.decimal('blocks');
   })
 };
 

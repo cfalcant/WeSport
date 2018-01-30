@@ -4,9 +4,11 @@ exports.seed = function(knex, Promise) {
     .then(function() {
       // Inserts seed entries
       return knex('users').insert([
-        { id: 1, colName: 'rowValue1' },
-        { id: 2, colName: 'rowValue2' },
-        { id: 3, colName: 'rowValue3' }
+        { email: 'nickderrico@hotmail.com', password: 'nickrocks' },
+        { email: 'carlosalcantar@hotmail.com', password: 'carlosrocks' },
+        { email: 'nickgatti@hotmail.com', password: 'nick2rocks' },
+        { email: 'jentristan@hotmail.com', password: 'jenrocks' },
+        { email: 'troyamelotte@hotmail.com', password: 'troyrocks' },
       ]);
     });
 };

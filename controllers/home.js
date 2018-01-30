@@ -8,6 +8,7 @@ module.exports = {
     }
     res.render("home", { error: req.session.error });
   },
+
   register: function(req, res) {
     knex('users').insert({
       email: req.body.email,
@@ -16,6 +17,7 @@ module.exports = {
       res.redirect('/');
     })
   },
+
   login: function(req, res) {
     knex('users')
       .where('email', req.body.email)
@@ -32,7 +34,7 @@ module.exports = {
         if (user.password === req.body.password) {
           req.session.user = user;
           req.session.save(() => {
-            //res.redirect('/');
+            res.redirect('/');
           })
         } else {
           req.session.error = "Invalid email/password"
