@@ -1,5 +1,6 @@
 //Update the name of the controller below and rename the file.
 const home = require("../controllers/home.js")
+const players = require("../controllers/players.js")
 module.exports = function(app){
 
   app.get('/', home.index);
@@ -8,6 +9,8 @@ module.exports = function(app){
 
   app.post ('/login', home.login)
 
+  app.get('/players', players.index)
+  
   app.use(authMiddleware)
 
 

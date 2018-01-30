@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<style>
+  th {
+    border: 1px solid black;
+  }
+</style>
+
+<body>
+  <h1> All Players </h1>
+
+  <% for(let i =0;i<players.length;i++) { %>
+    <% for (let j = 0;j<teams.length;j++) { %>
+      <%   if (teams[j].id === players[i].team_id) { %>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Team</th>
+            <th>Jersey #</th>
+            <th>Position</th>
+            <th>Points/game</th>
+            <th>Steals/game</th>
+            <th>Assists/game</th>
+            <th>Blocks/game</th>
+          </tr>
+          <tr>
+            <td>
+              <a href="/players/info/<%=players[i].id %>">
+                <%= `${players[i].first_name} ${players[i].last_name}` %>
+            </td>
+            <td>
+              <%= teams[j].team_name%>
+            </td>
+            <td>
+              <%= players[i].jersey%>
+            </td>
+            <td>
+              <%= players[i].position%>
+            </td>
+            <td>
+              <%= players[i].points%>
+            </td>
+            <td>
+              <%= players[i].assists%>
+            </td>
+            <td>
+              <%= players[i].steals%>
+            </td>
+            <td>
+              <%= players[i].blocks%>
+            </td>
+          </tr>
+        </table>
+        <% } %>
+          <% } %>
+            <% } %>
+
+</body>
+
+</html>
