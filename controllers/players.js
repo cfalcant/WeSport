@@ -9,5 +9,29 @@ module.exports = {
           res.render('players', {players:allplayers, teams:allteams})
       })
     })
-  }
+  },
+
+  add: function (req, res) {
+    knex('players')
+    .then((allplayers)=>{
+    knex('teams')
+    .then((allteams)=>{
+      knex('players')
+       .insert({
+         first_name:req.body.first_name,
+         last_name:req.body.last_name,
+         jersey:req.body.jersey,
+         position:req.body.position,
+         team_id:req.body.team_id,
+         points:req.body.points,
+         steals:req.body.steals,
+         assists:req.body.assists,
+         blocks:req.body.blocks
+       })
+       .then((newPlayerAdded)=>{
+         res.render('players', {teams:allteams, players:allplayers})
+     })
+    })
+ })
+}
 }

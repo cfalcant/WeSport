@@ -12,7 +12,40 @@
 </style>
 
 <body>
-  <h1> All Players </h1>
+  <h1>ALL PLAYERS</h1>
+  <hr>
+
+  <h2>Add a new player!</h2>
+  <button onclick="myFunction()" type="submit">Add a new player!</button>
+
+
+  <div id="addPlayerButton" style="display:none;">
+    <h4>Enter player's information below:</h4>
+    <form action="/addPlayer" method="post">
+      <input type="string" name="first_name" placeholder="First Name">
+      <input type="string" name="last_name" placeholder="Last Name">
+      <input type="integer" name="jersey" placeholder="Jersey #">
+      <select name="position">
+        <option value="PG">PG</option>
+        <option value="SG">SG</option>
+        <option value="SF">SF</option>
+        <option value="PF">PF</option>
+        <option value="C">C</option>
+      </select>
+
+      <select name="team_id">
+        <% for (let k = 0;k < teams.length;k++){ %>
+            <option value="<%=teams[k].id%>"><%=teams[k].id%> - <%=teams[k].team_name%></option>
+      <% } %>
+    </select>
+      <input type="decimal" name="points" placeholder="Points">
+      <input type="decimal" name="steals" placeholder="Steals">
+      <input type="decimal" name="assists" placeholder="Assists">
+      <input type="decimal" name="blocks" placeholder="Blocks">
+      <input type="submit">
+    </form>
+  </div>
+  <hr>
 
   <% for(let i =0;i<players.length;i++) { %>
     <% for (let j = 0;j<teams.length;j++) { %>
@@ -34,7 +67,8 @@
                 <%= `${players[i].first_name} ${players[i].last_name}` %>
             </td>
             <td>
-              <%= teams[j].team_name%>
+              <a href="/teams/info/<%=teams[j].id %>">
+                <%= teams[j].team_name%>
             </td>
             <td>
               <%= players[i].jersey%>
@@ -60,6 +94,18 @@
           <% } %>
             <% } %>
 
+
+            <script>
+              function myFunction() {
+                var x = document.getElementById("addPlayerButton");
+                if (x.style.display === "block") {
+                  x.style.display = "none";
+                } else {
+                  x.style.display = "block";
+                }
+
+              }
+            </script>
 </body>
 
 </html>
