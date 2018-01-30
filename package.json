@@ -2,7 +2,7 @@
   "name": "q2_project",
   "version": "1.0.0",
   "description": "Galvanize Q2 project",
-  "main": "knexfile.js",
+  "main": "server.js",
   "dependencies": {
     "connect-session-knex": "^1.4.0",
     "ejs": "^2.5.7",
