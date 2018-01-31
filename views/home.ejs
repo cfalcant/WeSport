@@ -2,13 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+
+    <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <title>Home</title>
   </head>
   <body>
 
+    <nav>
+  <div class="nav-wrapper grey darken-1">
+    <!-- <a href="#" class="brand-logo right">Logo</a> -->
+    <ul id="nav" class="right hide-on-med-and-down">
+      <li><a href="/teams">Teams</a></li>
+      <li><a href="/players">Players</a></li>
+      <li><a href="/all-star">All-Star</a></li>
+    </ul>
+  </div>
+</nav>
+
+
     <h3>Register:</h3>
 
-    <form action="/register" method="post">
+    <form class="register" action="/register" method="post">
       <input type="email" name="email" placeholder="Email">
       <input type="password" name="password" placeholder="Password">
       <input type="submit">
@@ -18,10 +36,24 @@
 
     <h3>Login:</h3>
 
-    <form action="/login" method="post">
+    <form class="login" action="/login" method="post">
       <input type="email" name="email" placeholder="Email">
       <input type="password" name="password" placeholder="Password">
       <input type="submit">
     </form>
+
+
+  <footer class="grey darken-1 page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Copyright Carlos Alcantar & Nick D'Errico
+      </div>
+    </div>
+  </footer>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
   </body>
 </html>

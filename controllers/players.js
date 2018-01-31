@@ -33,5 +33,17 @@ module.exports = {
      })
     })
  })
-}
+},
+  individual: (req, res) => {
+    knex('players')
+    .where('players.id', req.params.id)
+    .then((allplayers) => {
+      knex('teams')
+      .then((allteams) => {
+        res.render('individualPlayer', { players: allplayers[0], teams: allteams })
+      })
+  })
+},
+
+
 }

@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
     table.decimal('steals');
     table.decimal('assists');
     table.decimal('blocks');
+    table.string('img_url');
   })
 };
 

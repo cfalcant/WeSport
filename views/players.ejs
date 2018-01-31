@@ -3,16 +3,28 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+ <!-- Compiled and minified JavaScript -->
+<link rel="stylesheet" href="/stylesheets/players.css">
+  <title>Players</title>
+
 </head>
-<style>
-  th {
-    border: 1px solid black;
-  }
-</style>
 
 <body>
-  <h1>ALL PLAYERS</h1>
+  <nav>
+  <div class="nav-wrapper grey darken-1">
+    <!-- <a href="#" class="brand-logo right">Logo</a> -->
+    <ul id="nav" class="right hide-on-med-and-down">
+      <li><a href="/">Home</a></li>
+      <li><a href="/teams">Teams</a></li>
+      <li><a href="/players">Players</a></li>
+      <li><a href="/all-star">All-Star</a></li>
+    </ul>
+  </div>
+</nav>
+  <h1>All Players</h1>
   <hr>
 
   <h2>Add a new player!</h2>
@@ -21,7 +33,7 @@
 
   <div id="addPlayerButton" style="display:none;">
     <h4>Enter player's information below:</h4>
-    <form action="/addPlayer" method="post">
+    <form action="/player/add" method="post">
       <input type="string" name="first_name" placeholder="First Name">
       <input type="string" name="last_name" placeholder="Last Name">
       <input type="integer" name="jersey" placeholder="Jersey #">
@@ -63,11 +75,11 @@
           </tr>
           <tr>
             <td>
-              <a href="/players/info/<%=players[i].id %>">
+              <a href="/player/<%=players[i].id %>">
                 <%= `${players[i].first_name} ${players[i].last_name}` %>
             </td>
             <td>
-              <a href="/teams/info/<%=teams[j].id %>">
+              <a href="/team/<%=teams[j].id %>">
                 <%= teams[j].team_name%>
             </td>
             <td>
@@ -93,6 +105,18 @@
         <% } %>
           <% } %>
             <% } %>
+
+                    <footer class="grey darken-1 page-footer">
+                      <div class="footer-copyright">
+                        <div class="container">
+                          © 2018 Copyright Carlos Alcantar & Nick D'Errico
+                        </div>
+                      </div>
+                    </footer>
+
+                    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                      crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 
             <script>

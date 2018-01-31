@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <link rel="stylesheet" href="/stylesheets/teams.css">
+  <title>Teams</title>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper grey darken-1">
+      <!-- <a href="#" class="brand-logo right">Logo</a> -->
+      <ul id="nav" class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/teams">Teams</a></li>
+        <li><a href="/players">Players</a></li>
+        <li><a href="/all-star">All-Star</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <h2>Add a new team!</h2>
+  <button onclick="myFunction()" type="submit">Add a new team!</button>
+
+
+  <div id="addPlayerButton" style="display:none;">
+    <h4>Enter team's information below:</h4>
+    <form action="/team/add" method="post">
+      <input type="string" name="team_name" placeholder="Team Name">
+      <input type="string" name="head_coach" placeholder="Head Coach">
+      <input type="string" name="city" placeholder="City">
+      <input type="submit">
+    </form>
+  </div>
+
+  <% for (let i = 0; i < teams.length; i++) { %>
+    <table>
+      <tr>
+        <th>Team</th>
+        <th>Head Coach</th>
+        <th>City</th>
+      </tr>
+      <td>
+        <a href='/team/<%= teams[i].id %>'>
+          <%= teams[i].team_name %>
+        </a>
+      </td>
+      <td>
+        <%= teams[i].head_coach %>
+      </td>
+      <td>
+        <%= teams[i].city %>
+      </td>
+    </table>
+    <% } %>
+
+      <footer class="grey darken-1 page-footer">
+        <div class="footer-copyright">
+          <div class="container">
+            © 2018 Copyright Carlos Alcantar & Nick D'Errico
+          </div>
+        </div>
+      </footer>
+
+      <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <script>
+        function myFunction() {
+          var x = document.getElementById("addPlayerButton");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+      </script>
+</body>
+
+</html>
