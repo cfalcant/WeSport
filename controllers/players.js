@@ -45,4 +45,21 @@ module.exports = {
           })
       })
   },
+
+  addallstar: function(req, res) {
+    if (!req.session.lineup) {
+      req.session.lineup = [];
+    }
+    knex('teams')
+      .then((allteams) => {
+        knex('players')
+          .where('id', req.params.id)
+          .then((selectedplayer) => {
+            req.session.lineup.push(selectedplayer[0]);
+            req.session.save(() => {
+              res.redirect('/all_star')
+            })
+          })
+      })
+  },
 }

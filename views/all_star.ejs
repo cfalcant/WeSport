@@ -1,10 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>All-Star</title>
-  </head>
-  <body>
-    <h1>All-Star Page</h1>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <link rel="stylesheet" href="/stylesheets/teams.css">
+  <title>All-Star</title>
+</head>
+
+<body>
+<h1>All-Star</h1>
+  <nav>
+    <div class="nav-wrapper grey darken-1">
+      <!-- <a href="#" class="brand-logo right">Logo</a> -->
+      <ul id="nav" class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/teams">Teams</a></li>
+        <li><a href="/players">Players</a></li>
+        <li><a href="/all_star">All-Star</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <% for (let i = 0;i < lineup.length;i++) { %>
+  <% for (let k = 0; k < teams.length;k++) { %>
+    <%   if (teams[k].id === lineup[i].team_id) { %>
+
+    <p>Name: <%= `${lineup[i].first_name} ${lineup[i].last_name}` %></p>
+    <p>Team: <%=teams[k].team_name%></p>
+    <p>Jersey #: <%=lineup[i].jersey%></p>
+    <p>Position: <%=lineup[i].position%></p>
+    <p>Points/game: <%=lineup[i].points%></p>
+    <p>Steals/game: <%=lineup[i].steals%></p>
+    <p>Assists/game: <%=lineup[i].assists%></p>
+    <p>Blocks/game: <%=lineup[i].blocks%></p>
+    <a href="/all_star/remove/<%=lineup[i].id %>">Remove from allstar list</a>
+<hr>
+<% } %>
+<% } %>
+<% } %>
+
+
+
+      <footer class="grey darken-1 page-footer">
+        <div class="footer-copyright">
+          <div class="container">
+            © 2018 Copyright Carlos Alcantar & Nick D'Errico
+          </div>
+        </div>
+      </footer>
+
+      <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <!-- <script>
+        function myFunction() {
+          var x = document.getElementById("addPlayerButton");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+      </script> -->
+</body>
 </html>

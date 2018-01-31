@@ -21,7 +21,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/teams">Teams</a></li>
         <li><a href="/players">Players</a></li>
-        <li><a href="/all-star">All-Star</a></li>
+        <li><a href="/all_star">All-Star</a></li>
       </ul>
     </div>
   </nav>
@@ -85,6 +85,7 @@
             <td><%= players[i].assists %></td>
             <td><%= players[i].steals %></td>
             <td><%= players[i].blocks %></td>
+            <td><a href="/all_star/<%=players[i].id %>">Add to allstar list</a></td>
           </tr>
         </table>
         <% } %>

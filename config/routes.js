@@ -14,6 +14,7 @@ module.exports = function(app) {
   // PLAYERS :
   app.get('/players', players.index);
   app.get('/player/:id', players.individual);
+  app.get('/all_star/:id', players.addallstar);
 
   app.post('/player/add', players.add);
 
@@ -22,6 +23,10 @@ module.exports = function(app) {
   app.get('/team/:id', teams.individual);
 
   app.post('/team/add', teams.add);
+
+  // ALL_STARS :
+  app.get('/all_star', allstar.index);
+  app.get('/all_star/remove/:id', allstar.remove);
 }
 
 function authMiddleware(req, res, next) {
