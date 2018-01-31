@@ -1,7 +1,7 @@
 const home = require("../controllers/home.js");
 const teams = require('../controllers/teams.js');
 const players = require('../controllers/players.js');
-const allstar = require('../controllers/all-star.js');
+const allstar = require('../controllers/all_star.js');
 module.exports = function(app) {
 
   // HOME :

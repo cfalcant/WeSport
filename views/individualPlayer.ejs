@@ -6,11 +6,10 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
      <!-- Compiled and minified JavaScript -->
-    <link rel="stylesheet" href="/stylesheets/teams.css">
+    <link rel="stylesheet" href="/stylesheets/individualPlayer.css">
     <title>Player Cards</title>
   </head>
   <body>
-    <h1>Test</h1>
 
     <nav>
       <div class="nav-wrapper grey darken-1">
@@ -24,6 +23,31 @@
       </div>
     </nav>
 
+      <div id="row">
+        <div id='player-card'class="col s12 m6 offset-s6 offset-m3">
+          <div class="card front">
+            <div class="card-image">
+              <img src="<%= players.img_url%>">
+              <span class="card-title"><%=players.first_name%> <%=players.last_name%></span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+          </div>
+          <div class="card back">
+            <div class="card-image">
+              <img src="<%= players.img_url%>">
+              <span class="card-title"><%=players.first_name%> <%=players.last_name%></span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <footer class="grey darken-1 page-footer">
       <div class="footer-copyright">
         <div class="container">
@@ -35,6 +59,5 @@
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
   </body>
 </html>

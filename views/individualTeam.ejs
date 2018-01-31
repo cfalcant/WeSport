@@ -23,6 +23,8 @@
       </div>
     </nav>
 
+    <h3><%= teams.city %> <%=teams.team_name%> <img src="<%=teams.logo%>"></h3>
+
     <% for (let i = 0; i < players.length; i++) { %>
       <% if (players[i].team_id === teams.id) { %>
       <table>

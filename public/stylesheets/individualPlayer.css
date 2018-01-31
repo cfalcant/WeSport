@@ -1,0 +1,30 @@
+#row {
+  position: relative;
+  perspective: 800px;
+}
+
+#player-card {
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+#player-card .card {
+  display: block;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+img {
+  border-radius: 7.5px;
+  height: 500px;
+  width: 250px;
+}
