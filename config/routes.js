@@ -13,13 +13,13 @@ module.exports = function(app) {
 
   // PLAYERS :
   app.get('/players', players.index);
-  app.get('/players/:id', players.individual);
+  app.get('/player/:id', players.individual);
 
   app.post('/player/add', players.add);
 
   // TEAMS :
   app.get('/teams', teams.index);
-  app.get('/teams/:id', teams.individual);
+  app.get('/team/:id', teams.individual);
 
   app.post('/team/add', teams.add);
 }

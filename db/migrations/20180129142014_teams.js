@@ -4,6 +4,7 @@ exports.up = function(knex, Promise) {
     table.string('team_name');
     table.string('head_coach');
     table.string('city');
+    table.string('logo');
   })
 };
 
