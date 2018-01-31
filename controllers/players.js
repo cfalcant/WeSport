@@ -10,6 +10,16 @@ module.exports = {
       })
     })
   },
+  individual: (req, res) => {
+  knex('players')
+    .where('players.id', req.params.id)
+    .then((allplayers) => {
+      knex('teams')
+        .then((allteams) => {
+          res.render('individualPlayer', { players: allplayers[0], teams: allteams })
+        })
+    })
+},
 
   add: function (req, res) {
     knex('players')
@@ -34,16 +44,6 @@ module.exports = {
     })
  })
 },
-  individual: (req, res) => {
-    knex('players')
-    .where('players.id', req.params.id)
-    .then((allplayers) => {
-      knex('teams')
-      .then((allteams) => {
-        res.render('individualPlayer', { players: allplayers[0], teams: allteams })
-      })
-  })
-},
 
 addallstar: function (req, res) {
     if (!req.session.lineup){
@@ -56,7 +56,7 @@ addallstar: function (req, res) {
       .then((selectedplayer)=>{
         req.session.lineup.push(selectedplayer[0]);
         req.session.save(()=>{
-          res.render('all-star', {lineup:req.session.lineup, teams:allteams})  
+          res.redirect('/all_star')  
     })
       })
     })

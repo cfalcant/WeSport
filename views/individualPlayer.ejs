@@ -6,11 +6,10 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
      <!-- Compiled and minified JavaScript -->
-    <link rel="stylesheet" href="/stylesheets/teams.css">
+    <link rel="stylesheet" href="/stylesheets/individualPlayer.css">
     <title>Player Cards</title>
   </head>
   <body>
-    <h1>Test</h1>
 
     <nav>
       <div class="nav-wrapper grey darken-1">
@@ -24,6 +23,24 @@
       </div>
     </nav>
 
+    <section class='container'>
+      <div id="card">
+        <figure class='front'>
+          <img src="<%=players.img_url%>">
+        </figure>
+        <figure class='back'>
+          <div class="stats">
+            <p><%= players.first_name %> <%= players.last_name%></p>
+            <p><%= players.jersey %></p>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section id='options'>
+      <p><button id='flip'>Flip Card</button></p>
+    </section>
+
     <footer class="grey darken-1 page-footer">
       <div class="footer-copyright">
         <div class="container">
@@ -35,6 +52,7 @@
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
+    <script src="../js/utils.js"></script>
+    <script src="../js/flip-card.js"></script>
   </body>
 </html>

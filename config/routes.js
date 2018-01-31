@@ -12,13 +12,14 @@ module.exports = function(app){
 
   // PLAYERS
   app.get('/players', players.index)
-  app.post('/player/add', players.add)
   app.get('/player/:id', players.individual)
   app.get('/allstar/:id', players.addallstar)
+  app.post('/player/add', players.add)
 
   //TEAMS
   app.get('/teams', teams.index);
   app.get('/team/:id', teams.individual);
+  app.post('/team/add', teams.add);
 
   // ALL-STAR
   app.get('/all_star', allstar.index)
