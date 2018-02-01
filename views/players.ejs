@@ -63,7 +63,9 @@
 <h1>All Players</h1>
   <% for(let i =0;i<players.length;i++) { %>
     <% for (let j = 0;j<teams.length;j++) { %>
+      <% for (let g = 0;g<lineup.length;g++) { %>
       <%   if (teams[j].id === players[i].team_id) { %>
+
         <table>
           <tr>
             <th>Name</th>
@@ -104,12 +106,22 @@
             </td>
           </tr>
         </table>
-
+<% if (lineup.length < 5) { %>
         <a href="/allstar/<%=players[i].id %>">Add to allstar list</a>
+<% } %>
+<% if (players[i].id == lineup[g].id) { %>
+<a href="/allstar/<%=players[i].id %>">Remove from allstar list</a>
+<% } %>
+      <% } %>
 
+      <% } %>
         <% } %>
+
           <% } %>
-            <% } %>
+
+
+
+
 
                     <footer class="grey darken-1 page-footer">
                       <div class="footer-copyright">

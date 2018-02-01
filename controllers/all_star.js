@@ -25,7 +25,7 @@ module.exports = {
         req.session.lineup.splice(i, 1);
         req.session.save(()=>{
           res.redirect('/all_star')
-          return;
+
         })
       }
     }

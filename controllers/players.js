@@ -1,12 +1,16 @@
 const knex = require("../db/knex.js");
 
 module.exports = {
+
   index: function (req, res){
+    if (!req.session.lineup){
+      req.session.lineup = [];
+    }
     knex('players')
     .then((allplayers)=>{
       knex('teams')
       .then((allteams)=>{
-          res.render('players', {players:allplayers, teams:allteams})
+          res.render('players', {players:allplayers, teams:allteams, lineup:req.session.lineup})
       })
     })
   },
@@ -46,9 +50,7 @@ module.exports = {
 },
 
 addallstar: function (req, res) {
-    if (!req.session.lineup){
-      req.session.lineup = [];
-    }
+
     knex('teams')
     .then((allteams)=>{
       knex('players')
@@ -56,11 +58,33 @@ addallstar: function (req, res) {
       .then((selectedplayer)=>{
         req.session.lineup.push(selectedplayer[0]);
         req.session.save(()=>{
-          res.redirect('/all_star')
+          res.redirect('/players')
     })
       })
     })
 },
+
+removeallstar: function (req, res) {
+  let lineup = req.session.lineup;
+  if (lineup.length == 1) {
+    req.session.lineup = [];
+    req.session.save(()=>{
+      res.redirect('/players');
+      return;
+    })
+  } else {
+  for (let i = 0; i < lineup.length;i++) {
+    if (lineup[i].id == req.params.id) {
+      req.session.lineup.splice(i, 1);
+      req.session.save(()=>{
+        res.redirect('/players')
+
+      })
+    }
+  }
+}
+},
+
 logout: (req, res) => {
   knex('users')
     .update({
