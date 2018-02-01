@@ -12,12 +12,10 @@
 </head>
 
 <body>
-<h1>All-Star</h1>
   <nav>
     <div class="nav-wrapper grey darken-1">
       <!-- <a href="#" class="brand-logo right">Logo</a> -->
       <ul id="nav" class="right hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
         <li><a href="/teams">Teams</a></li>
         <li><a href="/players">Players</a></li>
         <li><a href="/all_star">All-Star</a></li>
@@ -25,6 +23,7 @@
       </ul>
     </div>
   </nav>
+  <h1>All-Star</h1>
 
   <% for (let i = 0;i < lineup.length;i++) { %>
   <% for (let k = 0; k < teams.length;k++) { %>
@@ -56,16 +55,6 @@
 
       <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-      <!-- <script>
-        function myFunction() {
-          var x = document.getElementById("addPlayerButton");
-          if (x.style.display === "block") {
-            x.style.display = "none";
-          } else {
-            x.style.display = "block";
-          }
-        }
-      </script> -->
 </body>
 
 </html>

@@ -1,5 +1,12 @@
+
 body {
+  background-image: url('https://stats.nba.com/media/img/league/nba-logoman-word-white.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 80px;
+  height: 100%;
   text-align: center;
+  width: 100vw;
 }
 
 table {
@@ -9,4 +16,14 @@ table {
 
 tr {
   border: 1px solid black;
+}
+
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }

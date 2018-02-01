@@ -5,11 +5,11 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('users').insert([
-        {email: 'nickderrico@hotmail.com', password: 'nickrocks'},
-        {email: 'carlosalcantar@hotmail.com', password: 'carlosrocks'},
-        {email: 'nickgatti@hotmail.com', password: 'nick2rocks'},
-        {email: 'jentristan@hotmail.com', password: 'jenrocks'},
-        {email: 'troyamelotte@hotmail.com', password: 'troyrocks'}
+        {email: 'nickderrico@hotmail.com', password: 'nickrocks', lineup: ' ' },
+        {email: 'carlosalcantar@hotmail.com', password: 'carlosrocks',lineup: ' ' },
+        {email: 'nickgatti@hotmail.com', password: 'nick2rocks',lineup: ' ' },
+        {email: 'jentristan@hotmail.com', password: 'jenrocks',lineup: ' ' },
+        {email: 'troyamelotte@hotmail.com', password: 'troyrocks',lineup: ' ' }
       ]);
     });
 };

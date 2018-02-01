@@ -19,7 +19,6 @@ module.exports = {
         res.redirect('/all_star');
         return;
       })
-      // res.render('all_star')
     } else {
     for (let i = 0; i < lineup.length;i++) {
       if (lineup[i].id == req.params.id) {
@@ -31,8 +30,22 @@ module.exports = {
       }
     }
   }
-    // res.redirect('/players');
   },
+  logout: (req, res) => {
+  knex('users')
+    .update({
+      email: req.session.email,
+      password: req.session.password,
+      lineup: JSON.stringify(req.session.lineup)
+    })
+    .where('id', req.session.user.id)
+    .then((results) => {
+      req.session.save((results) => {
+        req.session.destroy();
+        res.redirect('/')
+      })
+    })
+},
 
 
 }
