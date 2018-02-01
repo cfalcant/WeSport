@@ -2,6 +2,9 @@ const knex = require("../db/knex.js");
 
 module.exports = {
   index: function (req, res) {
+    if (!req.session.lineup) {
+      req.session.lineup = [];
+    }
     knex('teams')
     .then((allteams)=>{
       res.render('all_star', {lineup:req.session.lineup, teams:allteams})
