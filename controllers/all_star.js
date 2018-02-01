@@ -8,7 +8,10 @@ module.exports = {
     }
     knex('teams')
       .then((allteams) => {
-        res.render('all_star', { lineup: req.session.lineup, teams: allteams })
+        knex('players')
+          .then((allplayers) => {
+            res.render('all_star', { lineup: req.session.lineup, teams: allteams, players: allplayers })
+          })
       })
   },
 
@@ -26,7 +29,6 @@ module.exports = {
           req.session.lineup.splice(i, 1);
           req.session.save(() => {
             res.redirect('/all_star')
-            return;
           })
         }
       }

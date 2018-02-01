@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
   <!-- Compiled and minified JavaScript -->
-  <link rel="stylesheet" href="/stylesheets/teams.css">
+  <link rel="stylesheet" href="/stylesheets/allstar.css">
   <title>All-Star</title>
 </head>
 
@@ -24,24 +24,34 @@
 
   <h1>All-Star</h1>
 
+      <section class='container'>
+        <div class='carousel'>
+          <% for (let i = 0; i < lineup.length; i++) { %>
+          <div id='card' class="carousel-item">
+            <figure class='front'>
+              <img src="<%=lineup[i].img_url%>">
+            </figure>
+            <figure class='back'>
+              <div class="stats">
+                <b><%= lineup[i].first_name %> <%= lineup[i].last_name%></b>
+                <p>Jersey# <%= lineup[i].jersey %></p>
+                <p>Position: <%= lineup[i].position %></p>
+                <p>Career Averages:</p>
+                <p>pts/game - <%= lineup[i].points %></p>
+                <p>stl/game - <%= lineup[i].steals %></p>
+                <p>ast/game - <%= lineup[i].assists %></p>
+                <p>blk/game - <%= lineup[i].blocks %></p>
+                <a href="/all_star/remove/<%=lineup[i].id %>">Remove from allstar list</a>
+              </div>
+            </figure>
+          </div>
+          <% } %>
+          <section id='options'>
+          <p><button id='flip'>Flip Card</button></p>
+        </section>
+        </div>
+      </section>
 
-  <% for (let i = 0;i < lineup.length;i++) { %>
-  <% for (let k = 0; k < teams.length;k++) { %>
-    <%   if (teams[k].id === lineup[i].team_id) { %>
-
-    <p>Name: <%= `${lineup[i].first_name} ${lineup[i].last_name}` %></p>
-    <p>Team: <%=teams[k].team_name%></p>
-    <p>Jersey #: <%=lineup[i].jersey%></p>
-    <p>Position: <%=lineup[i].position%></p>
-    <p>Points/game: <%=lineup[i].points%></p>
-    <p>Steals/game: <%=lineup[i].steals%></p>
-    <p>Assists/game: <%=lineup[i].assists%></p>
-    <p>Blocks/game: <%=lineup[i].blocks%></p>
-    <a href="/all_star/remove/<%=lineup[i].id %>">Remove from allstar list</a>
-<hr>
-<% } %>
-<% } %>
-<% } %>
 
 
 
@@ -53,8 +63,27 @@
     </div>
   </footer>
 
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/flip-card.js"></script>
+  <script type="text/javascript">
 
+  $(document).ready(function(){
+   $('.carousel').carousel();
+  });
+
+  $('.carousel').carousel('next');
+  $('.carousel').carousel('next', 1); // Move next n times.
+
+  // Previous slide
+  $('.carousel').carousel('prev');
+  $('.carousel').carousel('prev', 1); // Move prev n times.
+
+  // Set to nth slide
+  $('.carousel').carousel('set', 1);
+
+  </script>
 </body>
 </html>
