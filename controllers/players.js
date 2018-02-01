@@ -64,26 +64,45 @@ addallstar: function (req, res) {
     })
 },
 
-removeallstar: function (req, res) {
-  let lineup = req.session.lineup;
-  if (lineup.length == 1) {
-    req.session.lineup = [];
-    req.session.save(()=>{
-      res.redirect('/players');
-      return;
-    })
-  } else {
-  for (let i = 0; i < lineup.length;i++) {
-    if (lineup[i].id == req.params.id) {
-      req.session.lineup.splice(i, 1);
-      req.session.save(()=>{
-        res.redirect('/players')
-
-      })
-    }
-  }
-}
-},
+// removeallstar: function (req, res) {
+//   let lineup = req.session.lineup;
+//   if (lineup.length == 1) {
+//     req.session.lineup = [];
+//     req.session.save(()=>{
+//       res.redirect('/players');
+//       return;
+//     })
+//   } else {
+//   for (let i = 0; i < lineup.length;i++) {
+//     if (lineup[i].id == req.params.id) {
+//       req.session.lineup.splice(i, 1);
+//       req.session.save(()=>{
+//         res.redirect('/players')
+//
+//       })
+//     }
+//   }
+// }
+// },
+//
+// removeallstar: function (req, res) {
+//     knex('sessions')
+//     .where(user.lineup.id, req.params.id)
+//     .then((allsessions)=>{
+//       knex('teams')
+//       .then((allteams)=>{
+//         knex('players')
+//         .where('id', req.params.id)
+//         .then((selectedplayer)=>{
+//           req.session.lineup.splice(i, 1);
+//           req.session.save(()=>{
+//             res.redirect('/players')
+//       })
+//         })
+//       })
+//   })
+//
+// },
 
 logout: (req, res) => {
   knex('users')

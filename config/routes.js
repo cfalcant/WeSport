@@ -16,7 +16,7 @@ module.exports = function(app){
   app.get('/allstar/:id', players.addallstar)
   app.get('/logout', players.logout)
   app.post('/player/add', players.add)
-  app.get('/allstar/:id', players.removeallstar)
+  // app.get('/allstar/:id', players.removeallstar)
 
   //TEAMS
   app.get('/teams', teams.index);
