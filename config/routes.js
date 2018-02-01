@@ -15,6 +15,7 @@ module.exports = function(app) {
   app.get('/players', players.index);
   app.get('/player/:id', players.individual);
   app.get('/all_star/:id', players.addallstar);
+  app.get('/all_star/:id', players.removeallstar);
   app.get('/logout', players.logout);
 
 

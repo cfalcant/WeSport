@@ -27,23 +27,25 @@
       <section class='container'>
         <div class='carousel'>
           <% for (let i = 0; i < lineup.length; i++) { %>
-          <div id='card' class="carousel-item">
-            <figure class='front'>
-              <img src="<%=lineup[i].img_url%>">
-            </figure>
-            <figure class='back'>
-              <div class="stats">
-                <b><%= lineup[i].first_name %> <%= lineup[i].last_name%></b>
-                <p>Jersey# <%= lineup[i].jersey %></p>
-                <p>Position: <%= lineup[i].position %></p>
-                <p>Career Averages:</p>
-                <p>pts/game - <%= lineup[i].points %></p>
-                <p>stl/game - <%= lineup[i].steals %></p>
-                <p>ast/game - <%= lineup[i].assists %></p>
-                <p>blk/game - <%= lineup[i].blocks %></p>
-                <a href="/all_star/remove/<%=lineup[i].id %>">Remove from allstar list</a>
-              </div>
-            </figure>
+          <div class="carousel-item">
+            <div id='card'>
+              <figure class='front'>
+                <img src="<%=lineup[i].img_url%>">
+              </figure>
+              <figure class='back'>
+                <div class="stats">
+                  <b><%= lineup[i].first_name %> <%= lineup[i].last_name%></b>
+                  <p>Jersey# <%= lineup[i].jersey %></p>
+                  <p>Position: <%= lineup[i].position %></p>
+                  <p>Career Averages:</p>
+                  <p>pts/game - <%= lineup[i].points %></p>
+                  <p>stl/game - <%= lineup[i].steals %></p>
+                  <p>ast/game - <%= lineup[i].assists %></p>
+                  <p>blk/game - <%= lineup[i].blocks %></p>
+                  <a href="/all_star/remove/<%=lineup[i].id %>">Remove from allstar list</a>
+                </div>
+              </figure>
+            </div>
           </div>
           <% } %>
           <section id='options'>
