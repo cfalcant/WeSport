@@ -36,6 +36,22 @@ module.exports = {
             res.render('teams', { teams: allteams })
           })
       })
+  },
+
+  logout: (req, res) => {
+    knex('users')
+      .update({
+        email: req.session.email,
+        password: req.session.password,
+        lineup: JSON.stringify(req.session.lineup)
+      })
+      .where('id', req.session.user.id)
+      .then((results) => {
+        req.session.save((results) => {
+          req.session.destroy();
+          res.redirect('/')
+        })
+      })
   }
 
 }

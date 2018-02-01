@@ -15,10 +15,10 @@
       <div class="nav-wrapper grey darken-1">
         <!-- <a href="#" class="brand-logo right">Logo</a> -->
         <ul id="nav" class="right hide-on-med-and-down">
-          <li><a href="/">Home</a></li>
           <li><a href="/teams">Teams</a></li>
           <li><a href="/players">Players</a></li>
           <li><a href="/all_star">All-Star</a></li>
+          <li><a href="/logout">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -30,8 +30,13 @@
         </figure>
         <figure class='back'>
           <div class="stats">
-            <p><%= players.first_name %> <%= players.last_name%></p>
+            <b><%= players.first_name %> <%= players.last_name%></b>
             <p><%= players.jersey %></p>
+            <p><%= players.position %></p>
+            <p><%= players.points %></p>
+            <p><%= players.steals %></p>
+            <p><%= players.assists %></p>
+            <p><%= players.blocks %></p>
           </div>
         </figure>
       </div>

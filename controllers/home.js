@@ -30,9 +30,9 @@ module.exports = {
             return;
           })
         }
-
         if (user.password === req.body.password) {
           req.session.user = user;
+          req.session.lineup = JSON.parse(user.lineup)
           req.session.save(() => {
             res.redirect('/players');
           })
@@ -42,7 +42,6 @@ module.exports = {
             res.redirect('/');
           })
         }
-
       })
   },
 

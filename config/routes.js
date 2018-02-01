@@ -15,18 +15,24 @@ module.exports = function(app) {
   app.get('/players', players.index);
   app.get('/player/:id', players.individual);
   app.get('/all_star/:id', players.addallstar);
+  app.get('/logout', players.logout);
+
 
   app.post('/player/add', players.add);
 
   // TEAMS :
   app.get('/teams', teams.index);
   app.get('/team/:id', teams.individual);
+  app.get('/logout', teams.logout);
 
   app.post('/team/add', teams.add);
 
   // ALL_STARS :
   app.get('/all_star', allstar.index);
   app.get('/all_star/remove/:id', allstar.remove);
+  app.get('/logout', allstar.logout);
+
+
 }
 
 function authMiddleware(req, res, next) {
