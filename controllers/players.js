@@ -65,26 +65,26 @@ module.exports = {
   },
 
 
-  removeallstar: function(req, res) {
-    let lineup = req.session.lineup;
-    if (lineup.length == 1) {
-      req.session.lineup = [];
-      req.session.save(() => {
-        res.redirect('/players');
-        return;
-      })
-    } else {
-      for (let i = 0; i < lineup.length; i++) {
-        if (lineup[i].id == req.params.id) {
-          req.session.lineup.splice(i, 1);
-          req.session.save(() => {
-            res.redirect('/players')
-
-          })
-        }
-      }
-    }
-  },
+  // removeallstar: function(req, res) {
+  //   let lineup = req.session.lineup;
+  //   if (lineup.length == 1) {
+  //     req.session.lineup = [];
+  //     req.session.save(() => {
+  //       res.redirect('/players');
+  //       return;
+  //     })
+  //   } else {
+  //     for (let i = 0; i < lineup.length; i++) {
+  //       if (lineup[i].id == req.params.id) {
+  //         req.session.lineup.splice(i, 1);
+  //         req.session.save(() => {
+  //           res.redirect('/players')
+  //
+  //         })
+  //       }
+  //     }
+  //   }
+  // },
 
   logout: (req, res) => {
     knex('users')

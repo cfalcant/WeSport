@@ -26,8 +26,6 @@
     </div>
   </nav>
 
-   <hr>
-
    <h2>Add a new player!</h2>
    <button onclick="myFunction()" type="submit">Add a new player!</button>
 
@@ -59,46 +57,41 @@
        <input type="submit">
      </form>
    </div>
-   <hr>
 
    <h1> All Players </h1>
 
-
-  <% for(let i = 0; i < players.length; i++) { %>
-    <% for (let j = 0; j < teams.length; j++) { %>
-      <% if (teams[j].id === players[i].team_id) { %>
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Team</th>
-              <th>Jersey #</th>
-              <th>Position</th>
-              <th>Points/game</th>
-              <th>Steals/game</th>
-              <th>Assists/game</th>
-              <th>Blocks/game</th>
-            </tr>
-            <tr>
-              <td><a href="/player/<%= players[i].id %>"><%= `${players[i].first_name} ${players[i].last_name}` %></td>
-                <td><%= teams[j].team_name %></td>
-                <td><%= players[i].jersey %></td>
-                <td><%= players[i].position %></td>
-                <td><%= players[i].points %></td>
-                <td><%= players[i].assists %></td>
-                <td><%= players[i].steals %></td>
-                <td><%= players[i].blocks %></td>
-              </tr>
-            </table>
-            <% } %>
+   <table>
+     <tr>
+       <th>Name</th>
+       <th>Team</th>
+       <th>Jersey #</th>
+       <th>Position</th>
+       <th>Points/game</th>
+       <th>Steals/game</th>
+       <th>Assists/game</th>
+       <th>Blocks/game</th>
+       <th>Allstar List</th>
+     </tr>
+      <% for(let i = 0; i < players.length; i++) { %>
+        <% for (let j = 0; j < teams.length; j++) { %>
+          <% if (teams[j].id === players[i].team_id) { %>
+                <tr>
+                  <td><a href="/player/<%= players[i].id %>"><%= `${players[i].first_name} ${players[i].last_name}` %></a></td>
+                    <td> <a href="/team/<%= teams[j].id %>"> <%= teams[j].team_name %> </a></td>
+                    <td><%= players[i].jersey %></td>
+                    <td><%= players[i].position %></td>
+                    <td><%= players[i].points %></td>
+                    <td><%= players[i].assists %></td>
+                    <td><%= players[i].steals %></td>
+                    <td><%= players[i].blocks %></td>
+                    <td> <% if (lineup.length < 5) { %>
+                       <a href="/all_star/<%=players[i].id %>">Add to allstar list</a>
+                      <% } %> </td>
+                  </tr>
+                <% } %>
+              <% } %>
           <% } %>
-          <% for (let k = 0; k < lineup.length; k++) { %>
-          <% if (lineup.length < 5 && players[i].id === lineup[k].id ) { %>
-            <a href="/allstar/<%=players[i].id %>">Remove to allstar list</a>
-        <% } else { %>
-          <a href="/allstar/<%=players[i].id %>">Add to allstar list</a>
-        <% } %>
-      <% } %>
-    <% } %>
+      </table>
 
         <footer class="grey darken-1 page-footer">
           <div class="footer-copyright">

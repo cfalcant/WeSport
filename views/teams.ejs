@@ -38,18 +38,20 @@
       </form>
     </div>
 
+    <table>
+      <tr>
+        <th>Team</th>
+        <th>Head Coach</th>
+        <th>City</th>
+      </tr>
     <% for (let i = 0; i < teams.length; i++) { %>
-      <table>
-        <tr>
-          <th>Team</th>
-          <th>Head Coach</th>
-          <th>City</th>
-        </tr>
+          <tr>
             <td> <a href='/team/<%= teams[i].id %>' > <%= teams[i].team_name %> </a> </td>
             <td><%= teams[i].head_coach %></td>
             <td><%= teams[i].city %></td>
-      </table>
+          </tr>
     <% } %>
+  </table>
 
     <footer class="grey darken-1 page-footer">
       <div class="footer-copyright">

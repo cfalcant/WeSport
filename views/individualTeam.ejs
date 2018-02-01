@@ -25,28 +25,30 @@
 
     <h3><%= teams.city %> <%=teams.team_name%> <img src="<%=teams.logo%>"></h3>
 
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Jersey #</th>
+        <th>Position</th>
+        <th>Points/game</th>
+        <th>Steals/game</th>
+        <th>Assists/game</th>
+        <th>Blocks/game</th>
+      </tr>
     <% for (let i = 0; i < players.length; i++) { %>
       <% if (players[i].team_id === teams.id) { %>
-      <table>
         <tr>
-          <th>Name</th>
-          <th>Jersey #</th>
-          <th>Position</th>
-          <th>Points/game</th>
-          <th>Steals/game</th>
-          <th>Assists/game</th>
-          <th>Blocks/game</th>
+          <td> <a href='/player/<%= players[i].id %>' > <%= `${players[i].first_name} ${players[i].last_name}` %> </a> </td>
+          <td><%= players[i].jersey %></td>
+          <td><%= players[i].position %></td>
+          <td><%= players[i].points %></td>
+          <td><%= players[i].assists %></td>
+          <td><%= players[i].steals %></td>
+          <td><%= players[i].blocks %></td>
         </tr>
-            <td> <a href='/player/<%= players[i].id %>' > <%= `${players[i].first_name} ${players[i].last_name}` %> </a> </td>
-            <td><%= players[i].jersey %></td>
-            <td><%= players[i].position %></td>
-            <td><%= players[i].points %></td>
-            <td><%= players[i].assists %></td>
-            <td><%= players[i].steals %></td>
-            <td><%= players[i].blocks %></td>
-      </table>
       <% } %>
     <% } %>
+  </table>
 
     <footer class="grey darken-1 page-footer">
       <div class="footer-copyright">
