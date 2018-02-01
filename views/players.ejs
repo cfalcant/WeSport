@@ -76,7 +76,7 @@
         <% for (let j = 0; j < teams.length; j++) { %>
           <% if (teams[j].id === players[i].team_id) { %>
                 <tr>
-                  <td><a href="/player/<%= players[i].id %>"><%= `${players[i].first_name} ${players[i].last_name}` %></a></td>
+                  <td><a href="/player/<%= players[i].id %>"><%= players[i].first_name %> <%= players[i].last_name %></a></td>
                     <td> <a href="/team/<%= teams[j].id %>"> <%= teams[j].team_name %> </a></td>
                     <td><%= players[i].jersey %></td>
                     <td><%= players[i].position %></td>
@@ -84,7 +84,11 @@
                     <td><%= players[i].assists %></td>
                     <td><%= players[i].steals %></td>
                     <td><%= players[i].blocks %></td>
-                    <td> <% if (lineup.length < 5) { %>
+                    <td> <% if (lineup.filter((item)=>{
+                      return item.id==players[i].id;
+                    }).length > 0) { %>
+                      <a href="/all_star/remove/<%=players[i].id %>">Remove from allstar list</a>
+                    <% } else if (lineup.length < 5) { %>
                        <a href="/all_star/<%=players[i].id %>">Add to allstar list</a>
                       <% } %> </td>
                   </tr>

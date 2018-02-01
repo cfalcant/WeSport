@@ -21,8 +21,8 @@ module.exports = {
       req.session.lineup = [];
       req.session.save(() => {
         res.redirect('/all_star')
-        return;
       })
+      return;
     } else {
       for (let i = 0; i < lineup.length; i++) {
         if (lineup[i].id == req.params.id) {
@@ -30,6 +30,7 @@ module.exports = {
           req.session.save(() => {
             res.redirect('/all_star')
           })
+          return;
         }
       }
     }
