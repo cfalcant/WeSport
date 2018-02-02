@@ -11,6 +11,10 @@ body {
   width: 100vw;
 }
 
+nav .brand-logo {
+  padding-right: 100vh;
+}
+
 .page-footer {
   position: absolute;
   right: 0;
