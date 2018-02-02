@@ -3,9 +3,6 @@ const knex = require("../db/knex.js");
 module.exports = {
 
   index: (req, res) => {
-    if (!req.session.lineup) {
-      req.session.lineup = [];
-    }
     knex('players')
       .then((allplayers) => {
         knex('teams')
@@ -44,7 +41,7 @@ module.exports = {
                 blocks: req.body.blocks
               })
               .then((newPlayerAdded) => {
-                res.render('players', { teams: allteams, players: allplayers })
+                res.redirect('/players')
               })
           })
       })

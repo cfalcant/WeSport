@@ -33,7 +33,7 @@ module.exports = {
             city: req.body.city
           })
           .then((newTeamAdded) => {
-            res.render('teams', { teams: allteams })
+            res.redirect('/teams')
           })
       })
   },

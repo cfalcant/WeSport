@@ -3,7 +3,12 @@ const teams = require('../controllers/teams.js');
 const players = require('../controllers/players.js');
 const allstar = require('../controllers/all_star.js');
 module.exports = function(app) {
-
+  app.use((req, res, next) => {
+    if (!req.session.lineup) {
+      req.session.lineup = [];
+    }
+    next();
+  })
   // HOME :
   app.get('/', home.index);
 

@@ -84,8 +84,8 @@
                     <td><%= players[i].assists %></td>
                     <td><%= players[i].steals %></td>
                     <td><%= players[i].blocks %></td>
-                    <td> <% if (lineup.filter((item)=>{
-                      return item.id==players[i].id;
+                    <td> <% if (lineup.filter((item) => {
+                      return item.id === players[i].id;
                     }).length > 0) { %>
                       <a href="/all_star/remove/<%=players[i].id %>">Remove from allstar list</a>
                     <% } else if (lineup.length < 5) { %>

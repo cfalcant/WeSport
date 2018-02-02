@@ -12,7 +12,8 @@
 
 <body>
   <nav>
-    <div class="nav-wrapper grey darken-1">
+    <div class="nav-wrapper orange darken-4">
+      <h3 class="brand-logo center">All Star Lineup</h3>
       <ul id="nav" class="right hide-on-med-and-down">
         <li><a href="/teams">Teams</a></li>
         <li><a href="/players">Players</a></li>
@@ -21,8 +22,6 @@
       </ul>
     </div>
   </nav>
-
-  <h1>All-Star</h1>
 
       <section class='container'>
         <div class='carousel'>
@@ -34,10 +33,10 @@
               </figure>
               <figure class='back'>
                 <div class="stats">
-                  <b><%= lineup[i].first_name %> <%= lineup[i].last_name%></b>
-                  <p>Jersey# <%= lineup[i].jersey %></p>
+                  <h5><%= lineup[i].first_name %> <%= lineup[i].last_name%></h5>
+                  <p>Jersey: #<%= lineup[i].jersey %></p>
                   <p>Position: <%= lineup[i].position %></p>
-                  <p>Career Averages:</p>
+                  <b>Career Averages:</b>
                   <p>pts/game - <%= lineup[i].points %></p>
                   <p>stl/game - <%= lineup[i].steals %></p>
                   <p>ast/game - <%= lineup[i].assists %></p>
@@ -48,16 +47,13 @@
             </div>
           </div>
           <% } %>
-          <section id='options'>
-          <p><button id='flip'>Flip Card</button></p>
-        </section>
         </div>
       </section>
+        <button id='flip'>Flip Card</button>
 
 
 
-
-  <footer class="grey darken-1 page-footer">
+  <footer class="orange darken-4 page-footer">
     <div class="footer-copyright">
       <div class="container">
         © 2018 Copyright Carlos Alcantar & Nick D'Errico
@@ -76,15 +72,11 @@
    $('.carousel').carousel();
   });
 
+  // Next slide
   $('.carousel').carousel('next');
-  $('.carousel').carousel('next', 1); // Move next n times.
 
   // Previous slide
   $('.carousel').carousel('prev');
-  $('.carousel').carousel('prev', 1); // Move prev n times.
-
-  // Set to nth slide
-  $('.carousel').carousel('set', 1);
 
   </script>
 </body>
