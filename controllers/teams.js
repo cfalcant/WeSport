@@ -32,7 +32,7 @@ individual: (req, res) => {
         city:req.body.city
       })
       .then((newteamadded)=>{
-        res.render('teams', {teams:allteams})
+        res.redirect('/teams')
       })
     })
   },
