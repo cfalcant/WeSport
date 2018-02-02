@@ -5,7 +5,8 @@ html {
 body {
   background-image: url('https://stats.nba.com/media/img/league/nba-logoman-word-white.svg');
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: 148vh;
+  background-position: 0 5.7vh;
   height: 100vh;
   width: 100vw;
 }
