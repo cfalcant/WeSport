@@ -13,10 +13,11 @@ module.exports = function(app){
   // PLAYERS
   app.get('/players', players.index)
   app.get('/player/:id', players.individual)
-  app.get('/allstar/:id', players.addallstar)
+  app.get('/all_star/:id', players.addallstar)
+  app.get('/all_star/remove/:id', players.removeallstar)
   app.get('/logout', players.logout)
   app.post('/player/add', players.add)
-  // app.get('/allstar/:id', players.removeallstar)
+
 
   //TEAMS
   app.get('/teams', teams.index);

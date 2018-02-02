@@ -3,159 +3,122 @@
 
 <head>
   <meta charset="utf-8">
+  <meta charset="utf-8">
   <!-- Compiled and minified CSS -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
- <!-- Compiled and minified JavaScript -->
-<link rel="stylesheet" href="/stylesheets/players.css">
+   <!-- Compiled and minified JavaScript -->
+  <link rel="stylesheet" href="/stylesheets/players.css">
   <title>Players</title>
-
 </head>
 
 <body>
+
   <nav>
-  <div class="nav-wrapper grey darken-1">
-    <!-- <a href="#" class="brand-logo right">Logo</a> -->
-    <ul id="nav" class="right hide-on-med-and-down">
+    <div class="nav-wrapper grey darken-1">
+      <!-- <a href="#" class="brand-logo right">Logo</a> -->
+      <ul id="nav" class="right hide-on-med-and-down">
+        <li><a href="/teams">Teams</a></li>
+        <li><a href="/players">Players</a></li>
+        <li><a href="/all_star">All-Star</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      <li><a href="/teams">Teams</a></li>
-      <li><a href="/players">Players</a></li>
-      <li><a href="/all_star">All-Star</a></li>
-      <li><a href="/logout">Logout</a></li>
-
-    </ul>
-  </div>
-</nav>
-
-  <hr>
-
-  <h2>Add a new player!</h2>
-  <button onclick="myFunction()" type="submit">Add a new player!</button>
+   <h2>Add a new player!</h2>
+   <button onclick="myFunction()" type="submit">Add a new player!</button>
 
 
-  <div id="addPlayerButton" style="display:none;">
-    <h4>Enter player's information below:</h4>
-    <form action="/player/add" method="post">
-      <input type="string" name="first_name" placeholder="First Name">
-      <input type="string" name="last_name" placeholder="Last Name">
-      <input type="integer" name="jersey" placeholder="Jersey #">
-      <select name="position">
-        <option value="PG">PG</option>
-        <option value="SG">SG</option>
-        <option value="SF">SF</option>
-        <option value="PF">PF</option>
-        <option value="C">C</option>
-      </select>
+   <div id="addPlayerButton" style="display:none;">
+     <h4>Enter player's information below:</h4>
+     <form action="/player/add" method="post">
+       <input type="string" name="first_name" placeholder="First Name">
+       <input type="string" name="last_name" placeholder="Last Name">
+       <input type="integer" name="jersey" placeholder="Jersey #">
+       <select name="position">
+         <option value="PG">PG</option>
+         <option value="SG">SG</option>
+         <option value="SF">SF</option>
+         <option value="PF">PF</option>
+         <option value="C">C</option>
+       </select>
 
-      <select name="team_id">
-        <% for (let k = 0;k < teams.length;k++){ %>
-            <option value="<%=teams[k].id%>"><%=teams[k].id%> - <%=teams[k].team_name%></option>
-      <% } %>
-    </select>
-      <input type="decimal" name="points" placeholder="Points">
-      <input type="decimal" name="steals" placeholder="Steals">
-      <input type="decimal" name="assists" placeholder="Assists">
-      <input type="decimal" name="blocks" placeholder="Blocks">
-      <input type="submit">
-    </form>
-  </div>
-  <hr>
-<h1>All Players</h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Team</th>
-    <th>Jersey #</th>
-    <th>Position</th>
-    <th>Points/game</th>
-    <th>Steals/game</th>
-    <th>Assists/game</th>
-    <th>Blocks/game</th>
-    <th>Select as All-Star?</th>
-  </tr>
-  <% for(let i =0;i<players.length;i++) { %>
-    <% for (let j = 0;j<teams.length;j++) { %>
-      <%   if (teams[j].id === players[i].team_id) { %>
+       <select name="team_id">
+         <% for (let k = 0; k < teams.length; k++) { %>
+             <option value="<%=teams[k].id%>"><%=teams[k].id%> - <%=teams[k].team_name%></option>
+       <% } %>
+     </select>
+       <input type="decimal" name="points" placeholder="Points">
+       <input type="decimal" name="steals" placeholder="Steals">
+       <input type="decimal" name="assists" placeholder="Assists">
+       <input type="decimal" name="blocks" placeholder="Blocks">
+       <input type="string" name="img_url" value="IMG URL">
+       <input type="submit">
+     </form>
+   </div>
 
+   <h1> All Players </h1>
 
-
-
-
-          <tr>
-            <td>
-              <a href="/player/<%=players[i].id %>">
-                <%= `${players[i].first_name} ${players[i].last_name}` %>
-              </a>
-            </td>
-            <td>
-              <a href="/team/<%=teams[j].id %>">
-                <%= teams[j].team_name%>
-              </a>
-            </td>
-            <td>
-              <%= players[i].jersey%>
-            </td>
-            <td>
-              <%= players[i].position%>
-            </td>
-            <td>
-              <%= players[i].points%>
-            </td>
-            <td>
-              <%= players[i].assists%>
-            </td>
-            <td>
-              <%= players[i].steals%>
-            </td>
-            <td>
-              <%= players[i].blocks%>
-            </td>
-            <td>
-              <% if (lineup.length < 5) { %>
-                      <a href="/allstar/<%=players[i].id %>">Add to allstar list</a>
+   <table>
+     <tr>
+       <th>Name</th>
+       <th>Team</th>
+       <th>Jersey #</th>
+       <th>Position</th>
+       <th>Points/game</th>
+       <th>Steals/game</th>
+       <th>Assists/game</th>
+       <th>Blocks/game</th>
+       <th>Allstar List</th>
+     </tr>
+      <% for(let i = 0; i < players.length; i++) { %>
+        <% for (let j = 0; j < teams.length; j++) { %>
+          <% if (teams[j].id === players[i].team_id) { %>
+                <tr>
+                  <td><a href="/player/<%= players[i].id %>"><%= players[i].first_name %> <%= players[i].last_name %></a></td>
+                    <td> <a href="/team/<%= teams[j].id %>"> <%= teams[j].team_name %> </a></td>
+                    <td><%= players[i].jersey %></td>
+                    <td><%= players[i].position %></td>
+                    <td><%= players[i].points %></td>
+                    <td><%= players[i].assists %></td>
+                    <td><%= players[i].steals %></td>
+                    <td><%= players[i].blocks %></td>
+                    <td> <% if (lineup.filter((item)=>{
+                      return item.id==players[i].id;
+                    }).length > 0) { %>
+                      <a href="/all_star/remove/<%=players[i].id %>">Remove from allstar list</a>
+                    <% } else if (lineup.length < 5) { %>
+                       <a href="/all_star/<%=players[i].id %>">Add to allstar list</a>
+                      <% } %> </td>
+                  </tr>
+                <% } %>
               <% } %>
-            </td>
-
-          </tr>
-
-
-
-  <% } %>
-
-      <% } %>
-
-
           <% } %>
-          </table>
+      </table>
 
+        <footer class="grey darken-1 page-footer">
+          <div class="footer-copyright">
+            <div class="container">
+              © 2018 Copyright Carlos Alcantar & Nick D'Errico
+            </div>
+          </div>
+        </footer>
 
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script>
+     function myFunction() {
+       var x = document.getElementById("addPlayerButton");
+       if (x.style.display === "block") {
+         x.style.display = "none";
+       } else {
+         x.style.display = "block";
+       }
+     }
+   </script>
 
-
-
-                    <footer class="grey darken-1 page-footer">
-                      <div class="footer-copyright">
-                        <div class="container">
-                          © 2018 Copyright Carlos Alcantar & Nick D'Errico
-                        </div>
-                      </div>
-                    </footer>
-
-                    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                      crossorigin="anonymous"></script>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-
-            <script>
-              function myFunction() {
-                var x = document.getElementById("addPlayerButton");
-                if (x.style.display === "block") {
-                  x.style.display = "none";
-                } else {
-                  x.style.display = "block";
-                }
-
-              }
-            </script>
 </body>
 
 </html>
