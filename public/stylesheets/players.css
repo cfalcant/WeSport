@@ -1,3 +1,7 @@
+html {
+  font-family: 'Exo 2', sans-serif;
+}
+
 body {
   background-image: url('https://stats.nba.com/media/img/league/nba-logoman-word-white.svg');
   background-repeat: no-repeat;
