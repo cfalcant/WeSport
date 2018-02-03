@@ -1,3 +1,7 @@
+html {
+  font-family: 'Exo 2', sans-serif;
+}
+
 body {
   /* background-image: url('https://clutchpoints.com/wp-content/uploads/2017/06/nba-map-teams.jpg'); */
   background-repeat: no-repeat;
@@ -70,6 +74,7 @@ img {
   height: 500px;
   width: 250px;
 }
+
 .page-footer {
   position: fixed;
   right: 0;

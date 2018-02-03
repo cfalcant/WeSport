@@ -30,7 +30,6 @@ module.exports = {
             return;
           })
         }
-
         if (user.password === req.body.password) {
           req.session.user = user;
           // req.session.lineup = JSON.parse(user.lineup)
@@ -43,7 +42,6 @@ module.exports = {
             res.redirect('/');
           })
         }
-
       })
   },
 

@@ -7,15 +7,15 @@
 
      <!-- Compiled and minified JavaScript -->
     <link rel="stylesheet" href="/stylesheets/teams.css">
+    <style>@import url('https://fonts.googleapis.com/css?family=Exo+2');</style>
     <title><%= teams.city %> <%=teams.team_name%></title>
   </head>
   <body>
 
     <nav>
-      <div class="nav-wrapper grey darken-1">
+      <div class="nav-wrapper blue darken-4">
         <!-- <a href="#" class="brand-logo right">Logo</a> -->
         <ul id="nav" class="right hide-on-med-and-down">
-
           <li><a href="/teams">Teams</a></li>
           <li><a href="/players">Players</a></li>
           <li><a href="/all_star">All-Star</a></li>
@@ -26,30 +26,32 @@
 
     <h3><%= teams.city %> <%=teams.team_name%> <img src="<%=teams.logo%>"></h3>
 
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Jersey #</th>
+        <th>Position</th>
+        <th>Points/game</th>
+        <th>Steals/game</th>
+        <th>Assists/game</th>
+        <th>Blocks/game</th>
+      </tr>
     <% for (let i = 0; i < players.length; i++) { %>
       <% if (players[i].team_id === teams.id) { %>
-      <table>
         <tr>
-          <th>Name</th>
-          <th>Jersey #</th>
-          <th>Position</th>
-          <th>Points/game</th>
-          <th>Steals/game</th>
-          <th>Assists/game</th>
-          <th>Blocks/game</th>
+          <td> <a href='/player/<%= players[i].id %>' > <%= `${players[i].first_name} ${players[i].last_name}` %> </a> </td>
+          <td><%= players[i].jersey %></td>
+          <td><%= players[i].position %></td>
+          <td><%= players[i].points %></td>
+          <td><%= players[i].assists %></td>
+          <td><%= players[i].steals %></td>
+          <td><%= players[i].blocks %></td>
         </tr>
-            <td> <a href='/player/<%= players[i].id %>' > <%= `${players[i].first_name} ${players[i].last_name}` %> </a> </td>
-            <td><%= players[i].jersey %></td>
-            <td><%= players[i].position %></td>
-            <td><%= players[i].points %></td>
-            <td><%= players[i].assists %></td>
-            <td><%= players[i].steals %></td>
-            <td><%= players[i].blocks %></td>
-      </table>
       <% } %>
     <% } %>
+  </table>
 
-    <footer class="grey darken-1 page-footer">
+    <footer class="red darken-3 page-footer">
       <div class="footer-copyright">
         <div class="container">
           © 2018 Copyright Carlos Alcantar & Nick D'Errico

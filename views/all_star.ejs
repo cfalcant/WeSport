@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
   <!-- Compiled and minified JavaScript -->
-  <link rel="stylesheet" href="/stylesheets/teams.css">
+  <link rel="stylesheet" href="/stylesheets/allstar.css">
+  <link rel="stylesheet" href="/stylesheets/fonts.css">
+  <style>@import url('https://fonts.googleapis.com/css?family=Exo+2');</style>
   <title>All-Star</title>
 </head>
 
 <body>
   <nav>
-    <div class="nav-wrapper grey darken-1">
-      <!-- <a href="#" class="brand-logo right">Logo</a> -->
+    <div class="nav-wrapper orange darken-4">
+      <h3 class="brand-logo center">ALL STAR LINEUP</h3>
       <ul id="nav" class="right hide-on-med-and-down">
         <li><a href="/teams">Teams</a></li>
         <li><a href="/players">Players</a></li>
@@ -23,39 +24,58 @@
       </ul>
     </div>
   </nav>
-  <h1>All-Star</h1>
 
-  <% for (let i = 0;i < lineup.length;i++) { %>
-  <% for (let k = 0; k < teams.length;k++) { %>
-    <%   if (teams[k].id === lineup[i].team_id) { %>
-
-    <p>Name: <%= `${lineup[i].first_name} ${lineup[i].last_name}` %></p>
-    <p>Team: <%=teams[k].team_name%></p>
-    <p>Jersey #: <%=lineup[i].jersey%></p>
-    <p>Position: <%=lineup[i].position%></p>
-    <p>Points/game: <%=lineup[i].points%></p>
-    <p>Steals/game: <%=lineup[i].steals%></p>
-    <p>Assists/game: <%=lineup[i].assists%></p>
-    <p>Blocks/game: <%=lineup[i].blocks%></p>
-    <a href="/all_star/remove/<%=lineup[i].id %>">Remove from allstar list</a>
-<hr>
-
-<% } %>
-<% } %>
-<% } %>
-
-
-
-      <footer class="grey darken-1 page-footer">
-        <div class="footer-copyright">
-          <div class="container">
-            © 2018 Copyright Carlos Alcantar & Nick D'Errico
+      <section class='container'>
+        <div class='carousel'>
+          <% for (let i = 0; i < lineup.length; i++) { %>
+          <div class="carousel-item">
+            <div id='card'>
+              <figure class='front'>
+                <img src="<%=lineup[i].img_url%>">
+              </figure>
+              <figure class='back'>
+                <div class="stats">
+                  <h5><%= lineup[i].first_name %> <%= lineup[i].last_name%></h5>
+                  <p>Jersey: #<%= lineup[i].jersey %></p>
+                  <p>Position: <%= lineup[i].position %></p>
+                  <b>Career Averages:</b>
+                  <p>pts/game - <%= lineup[i].points %></p>
+                  <p>stl/game - <%= lineup[i].steals %></p>
+                  <p>ast/game - <%= lineup[i].assists %></p>
+                  <p>blk/game - <%= lineup[i].blocks %></p>
+                  <a href="/all_star/remove/<%=lineup[i].id %>">Remove from allstar list</a>
+                </div>
+              </figure>
+            </div>
           </div>
+          <% } %>
         </div>
-      </footer>
+      </section>
+        <button id='flip'>Flip Card</button>
 
-      <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+  <footer class="orange darken-4 page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Copyright Carlos Alcantar & Nick D'Errico
+      </div>
+    </div>
+  </footer>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/flip-card.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+   $('.carousel').carousel();
+  });
+  // Next slide
+  $('.carousel').carousel('next');
+  // Previous slide
+  $('.carousel').carousel('prev');
+  </script>
 </body>
-
 </html>

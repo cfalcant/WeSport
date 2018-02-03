@@ -9,17 +9,15 @@
 
    <!-- Compiled and minified JavaScript -->
   <link rel="stylesheet" href="/stylesheets/players.css">
+  <style>@import url('https://fonts.googleapis.com/css?family=Exo+2');</style>
   <title>Players</title>
-  <style>
-@import url('https://fonts.googleapis.com/css?family=Exo+2');
-</style>
 </head>
 
 <body>
 
   <nav>
     <div class="nav-wrapper blue darken-4">
-      <!-- <a href="#" class="brand-logo right">Logo</a> -->
+      <h3 class="brand-logo center">PLAYERS</h3>
       <ul id="nav" class="right hide-on-med-and-down">
         <li><a href="/teams">Teams</a></li>
         <li><a href="/players">Players</a></li>
@@ -61,7 +59,7 @@
      </form>
    </div>
 
-   <h1> ALL PLAYERS </h1>
+   <h1> All Players </h1>
 
    <table>
      <tr>
@@ -87,8 +85,8 @@
                     <td><%= players[i].assists %></td>
                     <td><%= players[i].steals %></td>
                     <td><%= players[i].blocks %></td>
-                    <td> <% if (lineup.filter((item)=>{
-                      return item.id==players[i].id;
+                    <td> <% if (lineup.filter((item) => {
+                      return item.id === players[i].id;
                     }).length > 0) { %>
                       <a href="/all_star/remove/<%=players[i].id %>">Remove from allstar list</a>
                     <% } else if (lineup.length < 5) { %>
